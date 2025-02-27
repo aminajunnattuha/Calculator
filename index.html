@@ -7,24 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <!-- ব্যাকগ্রাউন্ড গ্রেডিয়েন্ট অ্যাড করা হয়েছে -->
     <div class="bg-gray-900 p-6 rounded-3xl shadow-2xl text-center w-80 border-4 border-purple-400">
+        <!-- মূল ক্যালকুলেটর ডিজাইন -->
         <input type="text" class="w-full h-16 text-3xl text-right p-4 bg-gray-800 text-white border-none outline-none rounded-lg shadow-md" id="display" disabled>
+        <!-- সংখ্যা ও অপারেটর বাটন গ্রিড -->
         <div class="grid grid-cols-4 gap-3 mt-6">
             <button class="col-span-2 bg-red-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-red-600 transition" onclick="clearDisplay()">C</button>
+            <!-- 'C' ক্লিয়ার বাটন, যা ইনপুট ফিল্ড খালি করে -->
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('/')">÷</button>
+            <!-- ভাগ করার অপারেটর -->
             <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('*')">×</button>
+            <!-- গুণ করার অপারেটর -->
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('7')">7</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('8')">8</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('9')">9</button>
             <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('-')">-</button>
+            <!-- বিয়োগ অপারেটর -->
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('4')">4</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('5')">5</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('6')">6</button>
             <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('+')">+</button>
+            <!-- যোগ অপারেটর -->
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('1')">1</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('2')">2</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('3')">3</button>
             <button class="row-span-2 bg-green-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-green-600 transition h-full" onclick="calculate()">=</button>
+            <!-- '=' সমাধান বাটন বড় করা হয়েছে -->
             <button class="col-span-2 bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('0')">0</button>
             <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('.')">.</button>
         </div>
@@ -32,15 +41,19 @@
     <script>
         function appendToDisplay(value) {
             document.getElementById('display').value += value;
+            // ইনপুট ফিল্ডে সংখ্যা বা অপারেটর যোগ করে
         }
         function clearDisplay() {
             document.getElementById('display').value = '';
+            // ইনপুট ফিল্ড খালি করে
         }
         function calculate() {
             try {
                 document.getElementById('display').value = eval(document.getElementById('display').value);
+                // ইনপুট এক্সপ্রেশন গণনা করে এবং ফলাফল দেখায়
             } catch (e) {
                 alert('Invalid Calculation');
+                // যদি কোনো ভুল থাকে, ইউজারকে সতর্ক করে
             }
         }
     </script>
