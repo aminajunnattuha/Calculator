@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div class="bg-gray-900 p-6 rounded-3xl shadow-2xl text-center w-80 border-4 border-purple-400">
+        <input type="text" class="w-full h-16 text-3xl text-right p-4 bg-gray-800 text-white border-none outline-none rounded-lg shadow-md" id="display" disabled>
+        <div class="grid grid-cols-4 gap-3 mt-6">
+            <button class="col-span-2 bg-red-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-red-600 transition" onclick="clearDisplay()">C</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('/')">÷</button>
+            <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('*')">×</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('7')">7</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('8')">8</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('9')">9</button>
+            <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('-')">-</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('4')">4</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('5')">5</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('6')">6</button>
+            <button class="bg-yellow-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-yellow-600 transition" onclick="appendToDisplay('+')">+</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('1')">1</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('2')">2</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('3')">3</button>
+            <button class="row-span-2 bg-green-500 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-green-600 transition h-full" onclick="calculate()">=</button>
+            <button class="col-span-2 bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('0')">0</button>
+            <button class="bg-gray-700 text-white p-4 rounded-xl text-xl shadow-lg hover:bg-gray-600 transition" onclick="appendToDisplay('.')">.</button>
+        </div>
+    </div>
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (e) {
+                alert('Invalid Calculation');
+            }
+        }
+    </script>
+</body>
+</html>
